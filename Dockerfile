@@ -12,7 +12,7 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN wget sourceforge.net/projects/ubuntuzilla/files/mozilla/apt/pool/main/f/firefox-mozilla-build/firefox-mozilla-build_52.0.2-0ubuntu1_amd64.deb && \
-    sudo dpkg -i firefox-mozilla-build_52.0.2-0ubuntu1_amd64.deb && \
+    dpkg -i firefox-mozilla-build_52.0.2-0ubuntu1_amd64.deb && \
     rm firefox-mozilla-build_52.0.2-0ubuntu1_amd64.deb
 
 RUN mkdir -p /srv/var && \

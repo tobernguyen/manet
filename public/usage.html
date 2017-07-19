@@ -20,8 +20,7 @@
 <body>
 
     <div class="header">
-        <h1><a href="https://github.com/vbauer/manet" title="Github">Manet</a></h1>
-        <h2>Website screenshot service</h2>
+        <h1><a href="https://github.com/tobernguyen/manet" title="Github">Web Screenshot</a></h1>
     </div>
 
     <div class="main">
@@ -38,7 +37,7 @@
 
                 <div class="pure-control-group">
                     <label for="url">Site address</label>
-                    <input id="url" name="url" type="text" placeholder="URL" maxlength="1024" value="google.com" autofocus>
+                    <input id="url" name="url" type="text" placeholder="URL" maxlength="1024" value="https://bitscreener.com/coins/bitcoin" autofocus>
                 </div>
 
                 <div class="pure-control-group">
@@ -152,12 +151,12 @@
 
                 <div class="pure-control-group">
                     <label for="headers">Headers</label>
-                    <input id="headers" name="headers" type="text" maxlength="1024" placeholder="Format: key1=value1;key2=value2;..." value="10,100,1260,680">
+                    <input id="headers" name="headers" type="text" maxlength="1024" placeholder="Format: key1=value1;key2=value2;...">
                 </div>
 
                 <div class="pure-control-group">
                     <label for="clipRect">Clip rectangle</label>
-                    <input id="clipRect" name="clipRect" type="text" maxlength="1024" placeholder="Format: top,left,width,height">
+                    <input id="clipRect" name="clipRect" type="text" maxlength="1024" placeholder="Format: top,left,width,height" value="10,100,1260,680">
                 </div>
 
                 <div class="pure-control-group">
@@ -165,7 +164,7 @@
                     <select id="engine" name="engine">
                         <option label="Default"></option>
                         <option value="phantomjs">PhantomJS</option>
-                        <option value="slimerjs" selected>SlimerJS</option>
+                        <option value="slimerjs" selected="selected">SlimerJS</option>
                     </select>
                 </div>
 

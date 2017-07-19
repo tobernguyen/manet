@@ -8,7 +8,7 @@ ENV SLIMERJS_VERSION_F 0.10.3
 RUN apt-get update && \
     apt-get -y install curl unzip wget && \
     curl -sL https://deb.nodesource.com/setup_8.x | /bin/bash - && \
-    apt-get -y install nodejs build-essential xvfb libfontconfig1 graphicsmagick && \
+    apt-get -y install nodejs build-essential xvfb libfontconfig1 libgtk-3-0 libdbus-glib-1-2 graphicsmagick && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN wget sourceforge.net/projects/ubuntuzilla/files/mozilla/apt/pool/main/f/firefox-mozilla-build/firefox-mozilla-build_52.0.2-0ubuntu1_amd64.deb && \

@@ -5,6 +5,7 @@ const _ = require('lodash'),
       logger = require('winston'),
       path = require('path'),
       squirrel = require('squirrel'),
+      gm = require('gm'),
       crypto = require('crypto'),
       utils = require('./utils'),
 
@@ -83,6 +84,10 @@ function minimizeImage(src, dest, cb) {
     );
 }
 
+function pageClipRect(options) {
+    var cr = options.clipRect;
+    return (cr && cr.top >= 0 && cr.left >= 0 && cr.width && cr.height) ? cr : null;
+}
 
 /* Screenshot capturing runner */
 
@@ -99,11 +104,27 @@ function runCapturingProcess(options, config, outputFile, base64, onFinish) {
         JSON.stringify(options), base64, JSON.stringify(cmd)
     );
 
+    console.log('cmd', cmd)
+
     utils.execProcess(cmd, opts, (error) => {
-        if (config.compress) {
-            minimizeImage(outputFile, config.storage, () => onFinish(error));
+        const clipRect = pageClipRect(options)
+
+        if (clipRect) {
+            gm(outputFile)
+                .crop(clipRect.width, clipRect.height, clipRect.top, clipRect.left)
+                .write(outputFile, (err) => {
+                    compressImg();
+                })
         } else {
-            onFinish(error);
+            compressImg();
+        }
+
+        function compressImg() {
+            if (config.compress) {
+                minimizeImage(outputFile, config.storage, () => onFinish(error));
+            } else {
+                onFinish(error);
+            }
         }
     });
 }

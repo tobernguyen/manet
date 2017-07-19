@@ -40,3 +40,4 @@ nbproject/
 
 # Example project
 example/*.png
+.DS_Store

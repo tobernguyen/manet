@@ -7,7 +7,7 @@ ui: true
 silent: false
 level: info
 
-engine: phantomjs
+engine: slimerjs
 timeout: 60000
 compress: false
 cache: 3600

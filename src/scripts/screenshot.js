@@ -135,9 +135,9 @@
         page.viewportSize = pageViewPortSize(options);
         page.paperSize = paperSize(options);
         page.settings = pageSettings(options);
-        if (clipRect) {
-            page.clipRect = clipRect;
-        }
+        // if (clipRect) {
+        //     page.clipRect = clipRect;
+        // }
 
         page.onResourceReceived = function(response) {
             if (response.stage === 'end') {
